@@ -1,0 +1,7 @@
+<p>product-feed works!</p>
+<!-- use mat grid list -->
+<mat-grid-list cols="5">
+    <mat-grid-tile *ngFor="let product of products"
+    [colspan]="1" [rowspan]="1"> <app-product-card [productData] = "product"></app-product-card>
+    </mat-grid-tile>
+</mat-grid-list>
