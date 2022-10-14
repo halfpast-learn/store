@@ -1,0 +1,23 @@
+.main {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  width: 20%;
+  height: 10rem;
+  text-align: center;
+  margin: 1%;
+}
+
+.singleLineP {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+
+.addToCart {
+    width: 50%;
+    height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+}
