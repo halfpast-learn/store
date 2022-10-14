@@ -1,7 +1,14 @@
 <p>product-feed works!</p>
 <!-- use mat grid list -->
-<mat-grid-list cols="5">
+<!--<mat-grid-list cols="3" style="border: 1px solid black;">
     <mat-grid-tile *ngFor="let product of products"
-    [colspan]="1" [rowspan]="1"> <app-product-card [productData] = "product"></app-product-card>
+    [colspan]="1" [rowspan]="1"  style="border: 1px solid black;"> <app-product-card [productData] = "product"></app-product-card>
     </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list>-->
+<div *ngFor="let productData of products" style="border: 1px solid black; display: inline-block; width: 20%; height: 10rem; text-align: center;">
+    <span>picture</span>
+    <p>{{productData.name}}</p>
+    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{productData.description}}</p>
+    <span>${{productData.price}} </span> <button>add</button>
+</div> 
+<!-- <app-product-card *ngFor="let product of products" [productData] = "product"></app-product-card> -->
