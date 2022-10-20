@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     ProductFeedComponent,
     FilterComponent,
     HeaderComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
