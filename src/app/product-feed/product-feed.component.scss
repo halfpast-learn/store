@@ -1,9 +1,10 @@
 .productFeed {
     width: 80%;
     display: inline-block;
-    align-items: center;
 }
 .container {
-    width: 80%;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-left: auto;
 }
