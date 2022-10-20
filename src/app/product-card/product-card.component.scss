@@ -4,6 +4,8 @@
   width: 200px;
   height: 15rem;
   text-align: center;
+  margin: 5px;
+  border-radius: 15px;
 }
 
 .pic {
@@ -11,8 +13,8 @@
   margin: 0 auto;
   border: 1px solid black;
   border-radius: 5px;
-  width: 5rem;
-  height: 5rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .singleLineP {
@@ -29,8 +31,9 @@
 }
 
 .description {
-  height: 40px;
+  height: 20px;
   line-height: 20px;
-  line-clamp: 2;
+  margin: 10px auto;
+  line-clamp: 1;
   overflow: hidden;
 }
