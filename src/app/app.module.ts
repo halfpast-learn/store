@@ -11,6 +11,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from './footer/footer.component';
+import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     FilterComponent,
     HeaderComponent,
     ProductCardComponent,
-    FooterComponent
+    FooterComponent,
+    CartComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
