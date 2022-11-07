@@ -3,6 +3,10 @@
     display: flex;
     border-bottom: 1px solid black;
 }
+.storename {
+    margin: auto 0px;
+}
+
 .buttons {
     margin: 5px 10px 5px auto;
 }
@@ -16,15 +20,35 @@
 .buttons>:first-child {
     margin-right: 10px;
 }
-.buttons>button:hover {
-    background-color: rgb(211, 211, 211);;
-}
+
 .menuicon {
     height: 50%;
     display: flex;
     margin: auto 0px;
     margin-left: 10px;
 }
-.menuicon:hover {
-    background-color: lightgray;
+
+.menu {
+    background-color: white;
+    display: inline-flexbox;
+
+    border: 1px solid black;
+    border-left: 0px;
+    
+    padding: 10px 15px;
+    width: 20%;
+    box-sizing: border-box;
+    box-shadow: 2px 2px rgba($color: #000000, $alpha: .5);
+    word-wrap: break-word;
+
+    position: absolute;
+    top: 35px;
+    left: 0px;
+    border-radius: 0px 0px 10px 0px;
+    
+    visibility: visible;
+}
+.menu>p{
+    text-align: center;
+    border-bottom: 1px solid black;
 }

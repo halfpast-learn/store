@@ -3,12 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() { }
+  constructor() {}
+  visible: boolean = false;
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  changeMenuVisibility() {
+    this.visible = !this.visible;
   }
-
 }
