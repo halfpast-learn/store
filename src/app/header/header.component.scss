@@ -19,3 +19,12 @@
 .buttons>button:hover {
     background-color: rgb(211, 211, 211);;
 }
+.menuicon {
+    height: 50%;
+    display: flex;
+    margin: auto 0px;
+    margin-left: 10px;
+}
+.menuicon:hover {
+    background-color: lightgray;
+}
