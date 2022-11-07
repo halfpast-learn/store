@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  host: {
+    '(document:click)': 'hideMenu($event)',
+  },
 })
 export class HeaderComponent implements OnInit {
   constructor() {}
@@ -12,5 +15,11 @@ export class HeaderComponent implements OnInit {
 
   changeMenuVisibility() {
     this.visible = !this.visible;
+  }
+
+  hideMenu(event: any) {
+    if (!event.target.classList.contains('menuicon')) {
+      this.visible = false;
+    }
   }
 }

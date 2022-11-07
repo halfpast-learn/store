@@ -27,8 +27,7 @@
 .menuicon {
   height: 50%;
   display: flex;
-  margin: auto 0px;
-  margin-left: 10px;
+  margin: auto 10px;
 }
 
 .menu {
@@ -50,7 +49,7 @@
   left: 0px;
   border-radius: 0px 0px 10px 0px;
 
-  visibility: visible;
+  visibility: hidden;
 }
 .menu > p {
   text-align: center;
