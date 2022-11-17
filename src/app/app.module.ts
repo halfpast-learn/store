@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { IgxComboModule } from 'igniteui-angular';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    IgxComboModule
   ],
   providers: [],
   bootstrap: [AppComponent]
