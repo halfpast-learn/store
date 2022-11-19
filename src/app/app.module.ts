@@ -7,7 +7,8 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { ProductFeedComponent } from './product-feed/product-feed.component';
 import { FilterComponent } from './filter/filter.component';
 import { HeaderComponent } from './header/header.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,15 +25,16 @@ import { ProfileComponent } from './profile/profile.component';
     ProductCardComponent,
     FooterComponent,
     CartComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
