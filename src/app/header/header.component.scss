@@ -2,7 +2,6 @@
   height: 35px;
   display: flex;
   border-bottom: 1px solid black;
-  cursor: pointer;
 }
 
 * {
@@ -12,6 +11,7 @@
 
 .storename {
   margin: auto 0px;
+  cursor: pointer;
 }
 
 .buttons {
@@ -35,6 +35,7 @@
   height: 50%;
   display: flex;
   margin: auto 10px;
+  cursor: pointer;
 }
 
 .menu {
@@ -61,6 +62,7 @@
 .menu > p {
   text-align: center;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 .menu > p:hover {
     background-color: rgba($color: #000000, $alpha: 0.1);
