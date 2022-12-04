@@ -8,27 +8,23 @@
   font-size: large;
 }
 
-
 .storename {
   margin: auto 0px;
   cursor: pointer;
 }
 
 .buttons {
-  margin: 5px 10px 5px auto;
+  margin: 0px 0px 0px auto;
 }
 .buttons > button {
-  background-color: rgb(236, 236, 236);
+  background-color: white;
   border: 0px;
-  height: 25px;
+  height: 100%;
   width: 60px;
-  border-radius: 5px;
 }
 .buttons > button:hover {
   background-color: rgba($color: #000000, $alpha: 0.15);
-}
-.buttons > :first-child {
-  margin-right: 10px;
+  cursor: pointer;
 }
 
 .menuicon {
@@ -45,25 +41,22 @@
   border: 1px solid black;
   border-left: 0px;
 
-  padding: 10px 15px;
-  width: 20%;
-  min-width: 220px;
+  padding: 0px 0;
+  width: 300px;
+  line-height: 40px;
+  
   box-sizing: border-box;
-  box-shadow: 2px 2px rgba($color: #000000, $alpha: 0.5);
   word-wrap: break-word;
 
   position: absolute;
   top: 35px;
   left: 0px;
-  border-radius: 0px 0px 10px 0px;
-
-  visibility: hidden;
 }
 .menu > p {
+  margin: 0;
   text-align: center;
-  border-bottom: 1px solid black;
   cursor: pointer;
 }
 .menu > p:hover {
-    background-color: rgba($color: #000000, $alpha: 0.1);
+  background-color: rgba($color: #000000, $alpha: 0.1);
 }
