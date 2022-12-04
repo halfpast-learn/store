@@ -6,6 +6,10 @@
   margin-right: 15%;
 }
 
+* {
+  font-size: large;
+}
+
 .content {
   margin: 0 auto;
 }
@@ -21,6 +25,28 @@ td > button {
     background-color: white;
 }
 
+.mat-header-cell {
+  color: black;
+  text-align: center;
+}
+.mat-cell {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mat-column-name {
+  text-align: left;
+}
+.mat-column-amount {
+  width: 10%;
+}
+.mat-column-price {
+  width: 10%;
+}
+.mat-column-totalPrice {
+  width: 15%;
+}
+
 * > button:hover {
     background-color: rgba($color: #000000, $alpha: 0.2);
 }
@@ -33,7 +59,7 @@ td > button {
     display: block;
     margin-top: 10px;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: 10px;
     border: 0px;
     border-radius: 5px;
     height: 30px;
