@@ -9,7 +9,7 @@
     </span>
 </div>
 <div class="menu" [ngStyle]="{'visibility': visible ? 'visible':'hidden'}">
-    <p routerLink="/">Recommended</p>
-    <p>Goods By Roles</p>
-    <p>Goods By Categories</p>
+    <p routerLink="/" (click)="changeTags($event)">Recommended</p>
+    <p (click)="changeTags($event)">Goods By Roles</p>
+    <p (click)="changeTags($event)">Goods By Categories</p>
 </div>

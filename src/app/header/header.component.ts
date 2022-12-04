@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TagLoaderService } from '../tag-loader.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   },
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private tagloader: TagLoaderService) {}
   visible: boolean = false;
   ngOnInit(): void {}
 
@@ -21,5 +23,9 @@ export class HeaderComponent implements OnInit {
     if (!event.target.classList.contains('menuicon')) {
       this.visible = false;
     }
+  }
+
+  changeTags(event: Event) {
+    this.tagloader.changeTags((event.target as HTMLElement).innerText);
   }
 }

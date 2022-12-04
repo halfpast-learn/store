@@ -11,5 +11,9 @@
         <br>
         <br>
         <button style="width:100%;">Apply</button>
+        <br>
+        <br>
+        <span class="tag" *ngFor="let tag of tags" (click)="handleSelection(tag)"
+            [ngStyle]="{'background-color':tag.selected===true?'rgba(0,0,0,0.3)':'rgba(0,0,0,0.1)'}">{{tag.text}}</span>
     </div>
 </div>
