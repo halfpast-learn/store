@@ -1,18 +1,11 @@
 <div class="filter">
     <div class="container">
-        <input type="text" placeholder="Search" style="width: 100%;">
-        <br>
-        <br>
-        <span> Price:
-            <br>
-            <input type="text" placeholder="From" style="width: 50px; margin-right: 5px;">
-            <input type="text" placeholder="To" style="width: 50px;">
-        </span>
-        <br>
-        <br>
-        <button style="width:100%;">Apply</button>
-        <br>
-        <br>
+        <input type="text" placeholder="Search" class="fullWidth">
+        <p class="price"> Price:
+        </p>
+        <input class="priceFilter" type="text" placeholder="From">
+        <input class="priceFilter" type="text" placeholder="To">
+        <button class="fullWidth">Apply</button>
         <span class="tag" *ngFor="let tag of tags" (click)="handleSelection(tag)"
             [ngStyle]="{'background-color':tag.selected===true?'rgba(0,0,0,0.3)':'rgba(0,0,0,0.1)'}">{{tag.text}}</span>
     </div>
