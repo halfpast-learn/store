@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Tag } from './filter/filter.component';
 
 var mockData: { [key: string]: Tag[] } = {
-  'Recommended': [{ id: 1, text: 'test1', selected: false }],
+  'Recommended': [{ id: 1, text: 'test1', selected: true }, { id: 2, text: 'test2', selected: false }],
   'Goods By Roles': [{ id: 1, text: 'test2', selected: false }],
   'Goods By Categories': [{ id: 1, text: 'test3', selected: false }],
 };
