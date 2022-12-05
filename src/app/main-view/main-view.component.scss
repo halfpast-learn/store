@@ -1,4 +1,7 @@
 .mainView {
-    display: block;
-    width: 100%;
+    display: flex;
+}
+
+app-product-feed {
+   margin-inline: auto;
 }

@@ -1,10 +1,6 @@
 .productFeed {
-    width: 80%;
-    display: inline-block;
-}
-.container {
     display: flex;
     flex-wrap: wrap;
-    justify-content:center;
+    align-content: stretch;
     margin-left: auto;
 }
