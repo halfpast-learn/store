@@ -1,10 +1,10 @@
 .filter {
-    width: 300px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 5px;
-    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
     font-size: large;
+    gap: 10px;
+    padding: 5px 0px 0px 5px;
+    width: 295px;
 }
 input[type="text"] {
     -webkit-box-sizing: border-box; // Safari/Chrome, other WebKit
@@ -12,18 +12,13 @@ input[type="text"] {
     box-sizing: border-box;         // Opera/IE 8+
     font-size: large;
     border: 0px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgray;
 }
 
 input[type="text"]:focus {
     border: 0px;
-    border-bottom: 2px solid gray;
+    border-bottom: 1px solid rgba(159, 236, 220, 0.85);
     outline: 0px;
-}
-
-.container {
-    width: 90%;
-    margin: 0 auto;
 }
 
 .container>* {
@@ -31,12 +26,16 @@ input[type="text"]:focus {
 }
 
 .price {
-    margin: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 5px;
 }
 
-.priceFilter {
-    margin-right: 5px;
-    width: 70px;
+.priceInput {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 5px;
 }
 
 .fullWidth {
@@ -44,19 +43,26 @@ input[type="text"]:focus {
 }
 
 button {
-    background-color: rgb(236, 236, 236);
+    background-color: white;
     border: 0px;
-    height: 25px;
-    border-radius: 5px;
+    height: 30px;
     font-size: large;
+    cursor: pointer;
 }
 button:hover {
-    background-color: rgb(211, 211, 211);;
+    background-color: rgba(159, 236, 220, 0.85);
 }
+.tags {
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+}
+
 .tag {
-    float: left;
-    margin-right: 5px;
-    border-radius: 5px;
+    display: flex;
+    box-sizing: border-box;
+    height: 30px;
     padding: 5px;
+    align-items: center;
     cursor: pointer;
 }
