@@ -15,11 +15,7 @@ mat-select {
     width: 10%;
 }
 
-.selectors {
-    display: inline-block;
-}
-
-.selectors > mat-select {
+.setting > mat-select {
     width: 100%;
 }
 
@@ -29,14 +25,62 @@ mat-select {
     gap: 50px;
 }
 
-.settingLabel {
-    display: flex;
-    justify-content: space-between;
-}
-
 .column {
     display: flex;
     flex-direction: column;
     width: 50%;
+    justify-content: space-between;
     font-weight: bold;
+    gap: 20px;
+}
+
+.setting {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settingLabel {
+    display: flex;
+    justify-content: space-between;
+}
+.settingLabel > button {
+    border: 0;
+    border-radius: 0;
+    background-color: white;
+}
+.settingLabel > button:hover {
+    background-color: rgba(159, 236, 220, 0.85);
+}
+
+.settingInput {
+    border: 0px;
+    border-bottom: 1px solid black;
+    outline: 0px;
+    font-size: large;
+    padding: 0px;
+    width: 100%;
+}
+.settingInput:focus {
+    border-bottom: 1px solid rgba(159, 236, 220, 0.85);
+}
+
+.email {
+    width: 100%;
+    box-sizing: border-box;
+}
+.address {
+    resize:none;
+    width: 100%;
+    height: 90px;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+
+.orders {
+    margin-top: 20px;
+    border-block: 1px solid grey;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }

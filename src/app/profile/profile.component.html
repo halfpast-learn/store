@@ -1,50 +1,84 @@
 <div class="profile">
-    <div class="settings">
-
-        <div class="column">
-            <div class="selectors">
-                <p>Role</p>
-                <mat-select multiple>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                </mat-select>
-            </div>
-            <div class="selectors">
-                <p>Hobbys</p>
-                <mat-select multiple>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                </mat-select>
-            </div>
-            <div class="selectors">
-                <p>Tags</p>
-                <mat-select multiple>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                    <mat-option>test</mat-option>
-                </mat-select>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="settingLabel">
-                <span>Email</span> <button class="changeButton">change</button>
-            </div>
-            <input class="email" type="text" name="" id="" title="address" placeholder="email">
-            <div class="settingLabel">
-                <span>Address</span> <button class="changeButton">change</button>
-            </div>
-            <textarea class="address" type="text" name="" id="" title="address" placeholder="address"></textarea>
-        </div>
+  <div class="settings">
+    <div class="column">
+      <div class="setting">
+        <span>Role</span>
+        <mat-select multiple>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+        </mat-select>
+      </div>
+      <div class="setting">
+        <span>Hobbies</span>
+        <mat-select multiple>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+        </mat-select>
+      </div>
+      <div class="setting">
+        <span>Tags</span>
+        <mat-select multiple>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+          <mat-option>test</mat-option>
+        </mat-select>
+      </div>
     </div>
-    <div class="orders">
-        <span>order 1</span>
-        <span>order 2</span>
 
+    <div class="column">
+      <div class="setting">
+        <div class="settingLabel">
+          <span>Email</span> <button class="changeButton">change</button>
+        </div>
+        <input
+          class="settingInput"
+          type="text"
+          name=""
+          id=""
+          title="email"
+          placeholder="New email"
+        />
+      </div>
+      <div class="setting">
+        <div class="settingLabel">
+          <span>Phone</span>
+          <button class="changeButton">change</button>
+        </div>
+        <input
+          class="settingInput"
+          type="text"
+          name=""
+          id=""
+          title="phone"
+          placeholder="New phone"
+        />
+      </div>
+      <div class="setting">
+        <div class="settingLabel">
+          <span>Password</span>
+          <button class="changeButton">change</button>
+        </div>
+        <input
+          class="settingInput"
+          type="text"
+          name=""
+          id=""
+          title="password"
+          placeholder="New password"
+        />
+      </div>
     </div>
+  </div>
+  <div class="orders">
+      <div class="order">
+          <span>order number</span>
+          <span>order items</span>
+          <span>order price</span>
+      </div>
+  </div>
 </div>
