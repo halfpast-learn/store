@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TagLoaderService } from '../tag-loader.service';
+import { TagLoaderService } from '../services/tag-loader.service';
 
 export interface Tag {
   id: number;

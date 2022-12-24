@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Tag } from './filter/filter.component';
+import { Tag } from '../filter/filter.component';
 
 var mockData: { [key: string]: Tag[] } = {
   'Recommended': [{ id: 1, text: 'test1', selected: true }, { id: 2, text: 'test2', selected: false }],
