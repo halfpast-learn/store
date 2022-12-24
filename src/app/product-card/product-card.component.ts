@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../product-feed/product-feed.component';
+import { Item } from '../entities/item';
 
 @Component({
   selector: 'app-product-card',
@@ -8,9 +8,9 @@ import { Product } from '../product-feed/product-feed.component';
 })
 export class ProductCardComponent implements OnInit {
   constructor() {}
-  @Input() productData: Product = {
-    id: -1,
-    name: 'empty',
+  @Input() itemData: Item = {
+    item_id: -1,
+    price: 0,
     description: 'empty',
   };
   ngOnInit(): void {}
