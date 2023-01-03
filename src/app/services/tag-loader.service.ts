@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Tag } from '../filter/filter.component';
-
-var mockData: { [key: string]: Tag[] } = {
-  'Recommended': [{ id: 1, text: 'test1', selected: true }, { id: 2, text: 'test2', selected: false }],
-  'Goods By Roles': [{ id: 1, text: 'test2', selected: false }],
-  'Goods By Categories': [{ id: 1, text: 'test3', selected: false }],
-};
+import { Tag } from '../entities/tag';
+import { ApiService } from './api.api-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TagLoaderService {
-  constructor() {}
+  constructor(private apiservice: ApiService) {}
 
-  private defaultTags = new BehaviorSubject(mockData['Recommended']);
+  private defaultTags: BehaviorSubject<Tag[]> = new BehaviorSubject<Tag[]>([]);// = new BehaviorSubject(this.apiservice.readTags());
+  ngOnInit() {
+    this.apiservice.readTags().subscribe(result => this.defaultTags.next(result));
+  }
   currentTags: Observable<Tag[]> = this.defaultTags.asObservable();
 
   changeTags(tags: string) {
-    this.defaultTags.next(mockData[tags]);
+    this.apiservice.readTags().subscribe(result => this.defaultTags.next(result));
   }
 }

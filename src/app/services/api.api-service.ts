@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../entities/user';
 import { Item } from '../entities/item';
+import { Tag } from '../entities/tag';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +36,9 @@ export class ApiService {
   }
   public readItem(item_id: number) {
     return this.httpClient.get<Item>(`${this.API_SERVER}/items/${item_id}`);
+  }
+  /* tags */
+  public readTags() {
+    return this.httpClient.get<Tag[]>(`${this.API_SERVER}/tags`);
   }
 }
