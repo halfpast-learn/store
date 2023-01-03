@@ -55,7 +55,8 @@ button:hover {
 .tags {
     display: flex;
     flex-direction: row;
-    gap:5px;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .tag {
