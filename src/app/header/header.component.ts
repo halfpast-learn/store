@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TagLoaderService } from '../services/tag-loader.service';
+import { TagLoaderService } from '../services/tag-category-changer.service';
 
 @Component({
   selector: 'app-header',

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TagLoaderService } from './tag-loader.service';
+import { TagLoaderService } from './tag-category-changer.service';
 
 describe('TagLoaderService', () => {
   let service: TagLoaderService;
