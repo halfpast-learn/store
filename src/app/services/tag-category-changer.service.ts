@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable, BehaviorSubject } from 'rxjs';
-import { Tag } from '../entities/tag';
+import { BehaviorSubject } from 'rxjs';
 import { ApiService } from './api.api-service';
 
 @Injectable({
