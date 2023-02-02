@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
+import { RegisterScreenComponent } from './register-screen/register-screen.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
     CartComponent,
     ProfileComponent,
     LoginScreenComponent,
+    RegisterScreenComponent,
   ],
   imports: [
     BrowserModule,

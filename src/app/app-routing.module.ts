@@ -5,12 +5,14 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { MainViewComponent } from './main-view/main-view.component';
 import { ProductFeedComponent } from './product-feed/product-feed.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterScreenComponent } from './register-screen/register-screen.component';
 
 const routes: Routes = [
   {path:'', component:MainViewComponent},
   {path:'profile', component:ProfileComponent},
   {path:'cart', component:CartComponent},
-  {path:'login', component:LoginScreenComponent}
+  {path:'login', component:LoginScreenComponent},
+  {path:'register', component:RegisterScreenComponent}
 ];
 
 @NgModule({
