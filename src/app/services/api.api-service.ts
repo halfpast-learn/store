@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../entities/user';
 import { Item } from '../entities/item';
 import { Tag } from '../entities/tag';
+import { Role } from '../entities/role';
+
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +19,9 @@ export class ApiService {
   }
   public readUser(user_id: number) {
     return this.httpClient.get<User>(`${this.API_SERVER}/users/${user_id}`);
+  }
+  public readUserByName(login: string) {
+    return this.httpClient.get<User>(`${this.API_SERVER}/users/name/${login}`);
   }
   public createUser(user: User) {
     return this.httpClient.post<User>(`${this.API_SERVER}/users/create`, user);
@@ -40,5 +45,12 @@ export class ApiService {
   /* tags */
   public readTags() {
     return this.httpClient.get<Tag[]>(`${this.API_SERVER}/tags`);
+  }
+  /* roles */
+  public readRoles() {
+    return this.httpClient.get<Role[]>(`${this.API_SERVER}/roles`);
+  }
+  public readRole(id: number) {
+    return this.httpClient.get<Role>(`${this.API_SERVER}/roles/${id}`);
   }
 }
