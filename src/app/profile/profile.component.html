@@ -3,29 +3,20 @@
     <div class="column">
       <div class="setting">
         <span>Role</span>
-        <mat-select multiple>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
+        <mat-select>
+          <mat-option *ngFor="let role of roles" [value]="role.name">{{role.name}}</mat-option>
         </mat-select>
       </div>
       <div class="setting">
         <span>Hobbies</span>
-        <mat-select multiple>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
+        <mat-select multiple [(value)]="currentRole">
+          <mat-option *ngFor="let role of roles">{{role.name}}</mat-option>
         </mat-select>
       </div>
       <div class="setting">
         <span>Tags</span>
         <mat-select multiple>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
-          <mat-option>test</mat-option>
+          <mat-option *ngFor="let tag of tags">{{tag.name}}</mat-option>
         </mat-select>
       </div>
     </div>
@@ -75,6 +66,16 @@
     </div>
   </div>
   <div class="orders">
+      <div class="order">
+          <span>order number</span>
+          <span>order items</span>
+          <span>order price</span>
+      </div>
+      <div class="order">
+          <span>order number</span>
+          <span>order items</span>
+          <span>order price</span>
+      </div>
       <div class="order">
           <span>order number</span>
           <span>order items</span>

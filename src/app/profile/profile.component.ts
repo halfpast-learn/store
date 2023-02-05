@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Role } from '../entities/role';
+import { Tag } from '../entities/tag';
 import { ApiService } from '../services/api.api-service';
 
 @Component({
@@ -7,13 +10,23 @@ import { ApiService } from '../services/api.api-service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  test = ['test1', 'test2'];
-
-  constructor(private apiService: ApiService) {}
+  roles: Role[] = [];
+  tags: Tag[] = [];
+  currentRole: string = '';
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.apiService.readUsers().subscribe((result) => {
-      console.log(result);
+    this.apiService.readRoles().subscribe((result) => {
+      this.roles = result;
     });
+    this.apiService.readTags().subscribe((result) => {
+      this.tags = result;
+    });
+    this.apiService.readRole(this.authService.currentUser.role).subscribe((result)=> {
+      this.currentRole = result.name;
+    })   
   }
 }

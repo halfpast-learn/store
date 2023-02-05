@@ -79,8 +79,13 @@ mat-select {
 
 .orders {
     margin-top: 20px;
-    border-block: 1px solid grey;
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+}
+.order {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
 }
