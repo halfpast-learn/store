@@ -25,8 +25,14 @@ export class ProfileComponent implements OnInit {
     this.apiService.readTags().subscribe((result) => {
       this.tags = result;
     });
-    this.apiService.readRole(this.authService.currentUser.role).subscribe((result)=> {
-      this.currentRole = result.name;
-    })   
+    this.apiService
+      .readRole(
+        this.authService.currentUser.role == undefined
+          ? -1
+          : this.authService.currentUser.role
+      )
+      .subscribe((result) => {
+        this.currentRole = result.name;
+      });
   }
 }
