@@ -29,8 +29,13 @@ export class AuthService {
     this.currentUser = new User();
   }
   register(login: string, password: string, email: string): void {
-    this.apiService.readUserByName(login).subscribe((result) => {
-      this.currentUser = result;
+    let user = new User();
+    user.username = login;
+    user.password = password;
+    user.email = email;
+    this.apiService.createUser(user).subscribe((result) => {
+      console.log(result);
+      this.currentUser = user;
       this.loggedIn.next(true);
     });
   }
