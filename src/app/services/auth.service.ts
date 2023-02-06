@@ -34,7 +34,6 @@ export class AuthService {
     user.password = password;
     user.email = email;
     this.apiService.createUser(user).subscribe((result) => {
-      console.log(result);
       this.currentUser = user;
       this.loggedIn.next(true);
     });
