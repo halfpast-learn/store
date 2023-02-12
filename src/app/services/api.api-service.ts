@@ -46,6 +46,9 @@ export class ApiService {
   public readTags() {
     return this.httpClient.get<Tag[]>(`${this.API_SERVER}/tags`);
   }
+  public readTagsByRole(id: number) {
+    return this.httpClient.get<Tag[]>(`${this.API_SERVER}/roles/role/${id}`);
+  }
   /* roles */
   public readRoles() {
     return this.httpClient.get<Role[]>(`${this.API_SERVER}/roles`);
