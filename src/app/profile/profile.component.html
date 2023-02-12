@@ -3,7 +3,7 @@
     <div class="column">
       <div class="setting">
         <span>Role</span>
-        <mat-select (value)="currentRole.role_id" (selectionChange)="changeRole($event)">
+        <mat-select [(value)]="currentRole.role_id" (selectionChange)="changeRole($event)">
           <mat-option *ngFor="let role of roles" [value]="role.role_id">{{role.name}}</mat-option>
         </mat-select>
       </div>

@@ -36,14 +36,14 @@ export class ProfileComponent implements OnInit {
           : this.authService.currentUser.role
       )
       .subscribe((result) => {
-        this.currentRole = result;
+        this.currentRole = result==null?new Role():result;
       });
   }
 
   changeRole(event: MatSelectChange) {
     console.log(event.value);
-    this.currentRole=event.value;
+    this.currentRole.role_id=event.value;
     this.authService.currentUser.role=this.currentRole.role_id;
-    this.apiService.updateUser(this.authService.currentUser).subscribe((result)=>console.log(`user updated ${result}`));
+    this.apiService.updateUser(this.authService.currentUser).subscribe((result)=>console.log(`user updated ${result.role}`));
   }
 }
