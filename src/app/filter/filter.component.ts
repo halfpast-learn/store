@@ -26,7 +26,7 @@ export class FilterComponent implements OnInit {
       this.authService.currentUser.role == null
     ) {
       this.apiservice.readTags().subscribe((result) => (this.tags = result));
-    } else {  
+    } else {
       this.apiservice
         .readTagsByRole(this.authService.currentUser.role)
         .subscribe((result) => (this.tags = result));
@@ -38,5 +38,6 @@ export class FilterComponent implements OnInit {
   handleSelection(tag: Tag) {
     this.tags.filter((x) => x.tag_id == tag.tag_id)[0].selected =
       !this.tags.filter((x) => x.tag_id == tag.tag_id)[0].selected;
+    this.tagloader.changeTags(this.tags.filter((x) => x.selected == true));
   }
 }
