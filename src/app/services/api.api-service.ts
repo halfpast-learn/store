@@ -39,6 +39,9 @@ export class ApiService {
   public readItems() {
     return this.httpClient.get<Item[]>(`${this.API_SERVER}/items`);
   }
+  public readItemsByTags(ids: number[]) {
+    return this.httpClient.get<Item[]>(`${this.API_SERVER}/${ids.toString}/allItems}`);
+  }
   public readItem(item_id: number) {
     return this.httpClient.get<Item>(`${this.API_SERVER}/items/${item_id}`);
   }
