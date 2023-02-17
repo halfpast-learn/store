@@ -26,6 +26,6 @@ export class HeaderComponent implements OnInit {
   }
 
   changeTags(event: Event) {
-    this.tagloader.changeTags((event.target as HTMLElement).innerText);
+    this.tagloader.changeTagCategory((event.target as HTMLElement).innerText);
   }
 }
