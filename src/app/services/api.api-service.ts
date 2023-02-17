@@ -40,7 +40,7 @@ export class ApiService {
     return this.httpClient.get<Item[]>(`${this.API_SERVER}/items`);
   }
   public readItemsByTags(ids: number[]) {
-    return this.httpClient.get<Item[]>(`${this.API_SERVER}/${ids.toString}/allItems}`);
+    return this.httpClient.get<Item[]>(`${this.API_SERVER}/tags/${ids.toString()}/allItems`);
   }
   public readItem(item_id: number) {
     return this.httpClient.get<Item>(`${this.API_SERVER}/items/${item_id}`);
