@@ -1,19 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface PeriodicElement {
-  id: number;
-  name: string;
-  amount: number;
-  price: number;
-  totalPrice: number;
-}
-
-var ELEMENT_DATA: PeriodicElement[] = [
-  { id: 1, name: 'test1', amount: 1, price: 10, totalPrice: 10 },
-  { id: 2, name: 'test1', amount: 1, price: 10, totalPrice: 10 },
-  { id: 3, name: 'test1', amount: 1, price: 10, totalPrice: 10 },
-  { id: 4, name: 'test1', amount: 1, price: 10, totalPrice: 10 },
-];
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
+import { Item } from '../entities/item';
+import { CartService } from '../services/cart-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -21,26 +9,30 @@ var ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'amount', 'price', 'totalPrice'];
-  dataSource = ELEMENT_DATA;
-  constructor() {}
+  @ViewChild(MatTable) table?: MatTable<any>;
+  displayedColumns: string[] = ['description', 'price'];
+  items: Item[] = [];
+  constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {}
-
-  increaseAmount(event: PeriodicElement) {
-    ELEMENT_DATA.filter(x => x.id == event.id)[0].amount += 1;
+  ngOnInit(): void {
+    this.items = this.cartService.getItems();
+    console.log(this.items);
+    this.table?.renderRows();
   }
 
-  decreaseAmount(event: PeriodicElement) {
-    ELEMENT_DATA.filter(x => x.id == event.id)[0].amount -= 1;
-    if (ELEMENT_DATA.filter(x => x.id == event.id)[0].amount == 0) {
-      ELEMENT_DATA = ELEMENT_DATA.filter(x => x.id != event.id);
-      this.dataSource = [...ELEMENT_DATA];
+  /*increaseAmount(event: Item) {
+    items.filter(x => x.id == event.id)[0].amount += 1;
+  }
+
+  decreaseAmount(event: Item) {
+    items.filter(x => x.id == event.id)[0].amount -= 1;
+    if (items.filter(x => x.id == event.id)[0].amount == 0) {
+      items = items.filter(x => x.id != event.id);
+      this.dataSource = [...items];
     }
-  }
+  }*/
   checkoutOrder() {
     //create order in DB, alert and redirect
     alert("Order created");
-    
   }
 }
