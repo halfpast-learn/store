@@ -22,7 +22,7 @@ export class ProductFeedComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.readItems().subscribe((result) => {
       this.allItems = result;
-      console.log(this.allItems); 
+      this.items = this.allItems;
     });
 
     this.tagService.currentTags.subscribe((result) => {
@@ -31,7 +31,6 @@ export class ProductFeedComponent implements OnInit {
           .readItemsByTags(result.map((a) => a.tag_id))
           .subscribe((result) => {
             this.items = result;
-            console.log(this.items);
           });
       } else {
         this.items = this.allItems;
