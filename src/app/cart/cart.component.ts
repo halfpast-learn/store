@@ -16,7 +16,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
-    console.log(this.items);
     this.table?.renderRows();
   }
 
@@ -32,7 +31,6 @@ export class CartComponent implements OnInit {
     }
   }*/
   checkoutOrder() {
-    //create order in DB, alert and redirect
-    alert("Order created");
+    this.cartService.createOrder();
   }
 }

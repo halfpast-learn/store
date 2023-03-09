@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../entities/user';
 import { Item } from '../entities/item';
 import { Tag } from '../entities/tag';
 import { Role } from '../entities/role';
-
+import { Order } from '../entities/order';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -40,7 +41,9 @@ export class ApiService {
     return this.httpClient.get<Item[]>(`${this.API_SERVER}/items`);
   }
   public readItemsByTags(ids: number[]) {
-    return this.httpClient.get<Item[]>(`${this.API_SERVER}/tags/${ids.toString()}/allItems`);
+    return this.httpClient.get<Item[]>(
+      `${this.API_SERVER}/tags/${ids.toString()}/allItems`
+    );
   }
   public readItem(item_id: number) {
     return this.httpClient.get<Item>(`${this.API_SERVER}/items/${item_id}`);
@@ -58,5 +61,9 @@ export class ApiService {
   }
   public readRole(id: number) {
     return this.httpClient.get<Role>(`${this.API_SERVER}/roles/${id}`);
+  }
+  /* orders */
+  public createOrder(order: Order) {
+    this.httpClient.post<Order>(`${this.API_SERVER}/orders`, order).subscribe();
   }
 }
