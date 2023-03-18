@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
 
   currentRole: Role = new Role();
   currentTags: Tag[] = [];
+  currentUsername: string = "";
 
   constructor(
     private apiService: ApiService,
@@ -38,6 +39,7 @@ export class ProfileComponent implements OnInit {
       .subscribe((result) => {
         this.currentRole = result==null?new Role():result;
       });
+    this.currentUsername = this.authService.currentUser.username;
   }
 
   changeRole(event: MatSelectChange) {

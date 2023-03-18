@@ -2,21 +2,15 @@
   <div class="settings">
     <div class="column">
       <div class="setting">
-        <span>Role</span>
+        <div class="settingLabel">
+          <span>Role</span>
+        </div>
+        <div class="settingDescription">
+          <p>Данное поле влияет на рекомендуемые товары</p>
+          <p>Укажите свою профессию или хобби</p>
+        </div>
         <mat-select [(value)]="currentRole.role_id" (selectionChange)="changeRole($event)">
           <mat-option *ngFor="let role of roles" [value]="role.role_id">{{role.name}}</mat-option>
-        </mat-select>
-      </div>
-      <div class="setting">
-        <span>Hobbies</span>
-        <mat-select multiple (value)="currentRole">
-          <mat-option *ngFor="let role of roles">{{role.name}}</mat-option>
-        </mat-select>
-      </div>
-      <div class="setting">
-        <span>Tags</span>
-        <mat-select multiple>
-          <mat-option *ngFor="let tag of tags">{{tag.name}}</mat-option>
         </mat-select>
       </div>
     </div>
@@ -24,62 +18,34 @@
     <div class="column">
       <div class="setting">
         <div class="settingLabel">
-          <span>Email</span> <button class="changeButton">change</button>
+          <span>Username</span>
         </div>
-        <input
-          class="settingInput"
-          type="text"
-          name=""
-          id=""
-          title="email"
-          placeholder="New email"
-        />
-      </div>
-      <div class="setting">
-        <div class="settingLabel">
-          <span>Phone</span>
-          <button class="changeButton">change</button>
-        </div>
-        <input
-          class="settingInput"
-          type="text"
-          name=""
-          id=""
-          title="phone"
-          placeholder="New phone"
-        />
+        <input disabled class="settingInput" type="text" title="username" placeholder={{currentUsername}} />
       </div>
       <div class="setting">
         <div class="settingLabel">
           <span>Password</span>
           <button class="changeButton">change</button>
         </div>
-        <input
-          class="settingInput"
-          type="text"
-          name=""
-          id=""
-          title="password"
-          placeholder="New password"
-        />
+        <input class="settingInput" type="text" name="" id="" title="password" placeholder="New password" />
       </div>
     </div>
   </div>
   <div class="orders">
-      <div class="order">
-          <span>order number</span>
-          <span>order items</span>
-          <span>order price</span>
-      </div>
-      <div class="order">
-          <span>order number</span>
-          <span>order items</span>
-          <span>order price</span>
-      </div>
-      <div class="order">
-          <span>order number</span>
-          <span>order items</span>
-          <span>order price</span>
-      </div>
+    <div class="order">
+      <span>order number</span>
+      <span>order items</span>
+      <span>order price</span>
+    </div>
+    <div class="order">
+      <span>order number</span>
+      <span>order items</span>
+      <span>order price</span>
+    </div>
+    <div class="order">
+      <span>order number</span>
+      <span>order items</span>
+      <span>order price</span>
+    </div>
   </div>
 </div>
