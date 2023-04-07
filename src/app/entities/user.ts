@@ -1,3 +1,5 @@
+import { Order } from "./order";
+
 export class User {
   user_id?: number;
   username: string = '';
@@ -7,4 +9,5 @@ export class User {
   phone?: string;
   email: string = '';
   role?: number;
+  orders?: Order[] = [];
 }

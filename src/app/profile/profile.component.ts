@@ -4,6 +4,7 @@ import { Role } from '../entities/role';
 import { Tag } from '../entities/tag';
 import { ApiService } from '../services/api.api-service';
 import { MatSelectChange } from '@angular/material/select';
+import { Order } from '../entities/order';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,7 @@ import { MatSelectChange } from '@angular/material/select';
 export class ProfileComponent implements OnInit {
   roles: Role[] = [];
   tags: Tag[] = [];
+  orders: Order[] = [];
 
   currentRole: Role = new Role();
   currentTags: Tag[] = [];
@@ -40,6 +42,19 @@ export class ProfileComponent implements OnInit {
         this.currentRole = result==null?new Role():result;
       });
     this.currentUsername = this.authService.currentUser.username;
+    this.apiService.readUserOrders(this.authService.currentUser.user_id!).subscribe((result) => {
+      this.orders = result==null?[]:result.orders!;
+      console.log(result.orders!);
+    });
+  }
+
+  
+  calculatePrice(order: Order) {
+    let totalPrice = 0;
+    for (let item of order.items) {
+      totalPrice+=item.price;
+    }
+    return totalPrice;
   }
 
   changeRole(event: MatSelectChange) {

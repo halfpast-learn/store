@@ -24,6 +24,9 @@ export class ApiService {
   public readUserByName(login: string) {
     return this.httpClient.get<User>(`${this.API_SERVER}/users/name/${login}`);
   }
+  public readUserOrders(user_id: number) {
+    return this.httpClient.get<User>(`${this.API_SERVER}/users/${user_id}/orders`);
+  }
   public createUser(user: User) {
     return this.httpClient.post<User>(`${this.API_SERVER}/users/create`, user);
   }

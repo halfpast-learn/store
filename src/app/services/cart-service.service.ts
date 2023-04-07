@@ -19,7 +19,6 @@ export class CartService {
     order.user_owner = this.authService.getCurrentUser().user_id!;
     order.items = this.currentItems;
     this.apiservice.createOrder(order);
-    console.log(order);
     alert("order created!");
   }
   getItems(): Item[] {

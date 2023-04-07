@@ -32,20 +32,8 @@
     </div>
   </div>
   <div class="orders">
-    <div class="order">
-      <span>order number</span>
-      <span>order items</span>
-      <span>order price</span>
-    </div>
-    <div class="order">
-      <span>order number</span>
-      <span>order items</span>
-      <span>order price</span>
-    </div>
-    <div class="order">
-      <span>order number</span>
-      <span>order items</span>
-      <span>order price</span>
+    <div *ngFor="let order of orders" class="order">
+      <span> Заказ №{{order.order_id}}</span> <span> Статус: {{order.status}}</span> <span> Цена: {{calculatePrice(order)}}</span>
     </div>
   </div>
 </div>
