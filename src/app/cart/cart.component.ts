@@ -12,6 +12,7 @@ export class CartComponent implements OnInit {
   @ViewChild(MatTable) table?: MatTable<any>;
   displayedColumns: string[] = ['description', 'price'];
   items: Item[] = [];
+  
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
@@ -30,7 +31,8 @@ export class CartComponent implements OnInit {
       this.dataSource = [...items];
     }
   }*/
-  checkoutOrder() {
-    this.cartService.createOrder();
+
+  checkoutOrder(address: string, contactInfo: string) {
+    this.cartService.createOrder(address, contactInfo);
   }
 }
