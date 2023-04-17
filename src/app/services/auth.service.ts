@@ -17,9 +17,9 @@ export class AuthService {
   }
 
   login(login: string, password: string): void {
-    this.apiService.readUserByName(login).subscribe((result) => {
+    this.apiService.readUserByName(login, password).subscribe((result) => {
       this.currentUser = result;
-      if (result != null && password == result.password) {
+      if (result != null) {
         this.loggedIn.next(true);
       }
     });
@@ -28,17 +28,19 @@ export class AuthService {
     this.loggedIn.next(false);
     this.currentUser = new User();
   }
-  register(login: string, password: string, email: string): void {
+  register(login: string, password: string): void {
     let user = new User();
     user.username = login;
     user.password = password;
-    user.email = email;
     this.apiService.createUser(user).subscribe((result) => {
-      this.currentUser = user;
-      this.loggedIn.next(true);
+      console.log(result);
     });
   }
   getCurrentUser(): User {
     return this.currentUser;
+  }
+  changePassword(newPassword: string) {
+    this.currentUser.password = newPassword;
+    this.apiService.updateUserPassword(this.currentUser).subscribe((result)=> console.log(result));
   }
 }

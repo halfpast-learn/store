@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
   currentTags: Tag[] = [];
   currentUsername: string = "";
 
+  passwordErrorInvoked: boolean = false;
+
   constructor(
     private apiService: ApiService,
     private authService: AuthService
@@ -62,5 +64,14 @@ export class ProfileComponent implements OnInit {
     this.currentRole.role_id=event.value;
     this.authService.currentUser.role=this.currentRole.role_id;
     this.apiService.updateUser(this.authService.currentUser).subscribe((result)=>console.log(`user updated ${result.role}`));
+  }
+
+  changePassword(newPassword: string, newPasswordAgain: string) {
+    if (newPassword.length<2 || newPassword!==newPasswordAgain) {
+      this.passwordErrorInvoked = true;
+      return;
+    }
+    this.passwordErrorInvoked = false;
+    this.authService.changePassword(newPassword);
   }
 }

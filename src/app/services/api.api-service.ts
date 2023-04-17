@@ -5,7 +5,6 @@ import { Item } from '../entities/item';
 import { Tag } from '../entities/tag';
 import { Role } from '../entities/role';
 import { Order } from '../entities/order';
-import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +20,8 @@ export class ApiService {
   public readUser(user_id: number) {
     return this.httpClient.get<User>(`${this.API_SERVER}/users/${user_id}`);
   }
-  public readUserByName(login: string) {
-    return this.httpClient.get<User>(`${this.API_SERVER}/users/name/${login}`);
+  public readUserByName(login: string, password: string) {
+    return this.httpClient.post<User>(`${this.API_SERVER}/users/name/login`, [login, password]);
   }
   public readUserOrders(user_id: number) {
     return this.httpClient.get<User>(`${this.API_SERVER}/users/${user_id}/orders`);
@@ -33,6 +32,12 @@ export class ApiService {
   public updateUser(user: User) {
     return this.httpClient.patch<User>(
       `${this.API_SERVER}/users/${user.user_id}/update`,
+      user
+    );
+  }
+  public updateUserPassword(user: User) {
+    return this.httpClient.patch<User>(
+      `${this.API_SERVER}/users/${user.user_id}/updatepw`,
       user
     );
   }

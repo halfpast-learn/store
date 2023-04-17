@@ -93,9 +93,6 @@ mat-select {
 }
 .order {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   border-bottom: 1px solid black;
-  height: 40px;
-  flex-wrap: wrap;
-  align-content: center;
 }

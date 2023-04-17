@@ -25,15 +25,20 @@
       <div class="setting">
         <div class="settingLabel">
           <span>Password</span>
-          <button class="changeButton">change</button>
+          <button class="changeButton" (click)="changePassword(newPassword.value, newPasswordAgain.value)">Для смены введите новый пароль и нажмите сюда</button>
         </div>
-        <input class="settingInput" type="text" name="" id="" title="password" placeholder="New password" />
+        <input #newPassword class="settingInput" type="text" title="password" placeholder="Новый пароль" />
+        <input #newPasswordAgain class="settingInput" type="text" title="password" placeholder="Новый пароль еще раз" />
       </div>
     </div>
   </div>
   <div class="orders">
     <div *ngFor="let order of orders" class="order">
-      <span> Заказ №{{order.order_id}}</span> <span> Статус: {{order.status}}</span> <span> Цена: {{calculatePrice(order)}}</span>
+      <span>Заказ №{{order.order_id}} </span> 
+      <span>Статус: {{order.status}}</span> 
+      <span>Цена: {{calculatePrice(order)}}</span>
+      <span>Адрес: {{order.address}}</span>
+      <span>Контакты: {{order.contact_information}}</span>
     </div>
   </div>
 </div>

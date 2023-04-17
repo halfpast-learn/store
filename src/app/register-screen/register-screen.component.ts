@@ -23,7 +23,7 @@ export class RegisterScreenComponent {
   loggedIn = false;
   loginSubscription = new Subscription();
   
-  register(login: string, password: string, email: string): void {
-    this.auth.register(login, password, email);
+  register(login: string, password: string): void {
+    this.auth.register(login, password);
   }
 }

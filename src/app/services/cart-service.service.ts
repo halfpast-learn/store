@@ -13,11 +13,14 @@ export class CartService {
   addItem(item: Item): void {
     this.currentItems.push(item);
   }
-  createOrder(): void {
+  createOrder(address: string = "", contact_info: string = ""): void {
     let order: Order = new Order;
     order.status = "created";
     order.user_owner = this.authService.getCurrentUser().user_id!;
     order.items = this.currentItems;
+    order.address = address;
+    order.contact_information = contact_info;
+    
     this.apiservice.createOrder(order);
     alert("order created!");
   }
