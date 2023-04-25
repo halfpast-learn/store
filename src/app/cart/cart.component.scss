@@ -52,20 +52,15 @@ td > button {
   width: 15%;
 }
 
-* > button:hover {
-    background-color: rgba($color: #000000, $alpha: 0.2);
+button {
+  background-color: white;
+  border: 0px;
+  height: 40px;
+  font-size: large;
+  cursor: pointer;
 }
-
-* > button:active {
-    background-color: rgba($color: #000000, $alpha: 0.3);
-}
-
-.checkout {
-    margin-left: auto;
-    margin-right: 10px;
-    border: 0px;
-    border-radius: 5px;
-    height: 30px;
+button:hover {
+  background-color: rgba(159, 236, 220, 0.85);
 }
 .order-data {
   display: flex;
@@ -74,8 +69,8 @@ td > button {
 }
 .order-info {
   display: flex;
-  align-self: flex-end;
   flex-direction: column;
+  margin: 0 10px;
 }
 
 input[type="text"] {
