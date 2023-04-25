@@ -14,6 +14,7 @@ export class ProductCardComponent implements OnInit {
     item_id: -1,
     price: 0,
     description: 'empty',
+    tags: [],
   };
   imageSource = '';
   ngOnInit(): void {
