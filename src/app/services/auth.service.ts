@@ -32,15 +32,15 @@ export class AuthService {
     let user = new User();
     user.username = login;
     user.password = password;
-    this.apiService.createUser(user).subscribe((result) => {
-      console.log(result);
-    });
+    this.apiService.createUser(user).subscribe((result) => {});
   }
   getCurrentUser(): User {
     return this.currentUser;
   }
   changePassword(newPassword: string) {
     this.currentUser.password = newPassword;
-    this.apiService.updateUserPassword(this.currentUser).subscribe((result)=> console.log(result));
+    this.apiService
+      .updateUserPassword(this.currentUser)
+      .subscribe((result) => console.log(result));
   }
 }
