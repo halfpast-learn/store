@@ -14,6 +14,10 @@ export class CartService {
     this.currentItems.push(item);
   }
   createOrder(address: string = "", contact_info: string = ""): void {
+    if (this.authService.getCurrentUser()==null||this.authService.getCurrentUser()==undefined) {
+      alert("Войдите или зарегистрируйтесь!");
+      return;
+    }
     let order: Order = new Order;
     order.status = "created";
     order.user_owner = this.authService.getCurrentUser().user_id!;
@@ -22,7 +26,7 @@ export class CartService {
     order.contact_information = contact_info;
     
     this.apiservice.createOrder(order);
-    alert("order created!");
+    alert("Заказ создан!");
   }
   getItems(): Item[] {
     return this.currentItems;
