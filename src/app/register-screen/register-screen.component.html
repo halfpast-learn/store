@@ -1,6 +1,6 @@
 <div class="container">
-    <input #login class="loginInput" type="text" placeholder="login">
-    <input #password class="loginInput" type="password" placeholder="password">
-    <button (click)="register(login.value, password.value)">Register</button>
-    <button routerLink="/login">Switch to login</button>
+    <input #login class="loginInput" type="text" placeholder="имя пользователя">
+    <input #password class="loginInput" type="password" placeholder="пароль">
+    <button (click)="register(login.value, password.value)">Зарегистрироваться</button>
+    <button routerLink="/login">Переключить на Вход</button>
 </div>
