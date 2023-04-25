@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Item } from '../entities/item';
 import { Tag } from '../entities/tag';
+import { ApiService } from './api.api-service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,14 @@ export class ItemService {
   itemsSubject: Subject<Item[]> = new Subject<Item[]>();
   items: Item[] = [];
   allItems: Item[] = [];
+
+  constructor(private apiService: ApiService) {
+    this.apiService.readItems().subscribe((result) => {
+        this.allItems = result;
+        this.items = this.allItems;
+        this.itemsSubject.next(this.items);
+      });
+  }
 
   addItem(item: Item) {
     this.items.push(item);
@@ -23,13 +32,13 @@ export class ItemService {
   }
 
   filterItems(
-    description: string = '',
-    minPrice: number = 0,
-    maxPrice: number = Number.MAX_SAFE_INTEGER,
-    tags: Tag[] = []
+    description: string,
+    minPrice: number,
+    maxPrice: number,
+    tags: Tag[]
   ) {
-    this.items = this.items.filter((item) => {
-      //check if contains a tag
+    this.items = this.allItems.filter((item) => {
+      //check if item contains a tag
       let containsTag = true;
       for (let tag of tags) {
         containsTag =
@@ -38,7 +47,6 @@ export class ItemService {
           break;
         }
       }
-
       return (
         item.description.includes(description) &&
         item.price > minPrice &&

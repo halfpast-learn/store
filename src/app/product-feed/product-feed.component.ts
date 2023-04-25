@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../entities/item';
 import { Tag } from '../entities/tag';
 import { ApiService } from '../services/api.api-service';
+import { ItemService } from '../services/item.service';
 import { TagLoaderService } from '../services/tag-category-changer.service';
 
 @Component({
@@ -16,16 +17,12 @@ export class ProductFeedComponent implements OnInit {
   currentTags: Tag[] = [];
   constructor(
     private apiService: ApiService,
-    private tagService: TagLoaderService
+    private tagService: TagLoaderService,
+    private itemService: ItemService
   ) {}
 
   ngOnInit(): void {
-    this.apiService.readItems().subscribe((result) => {
-      this.allItems = result;
-      this.changeItems([]);
-    });
-
-    this.tagService.currentTags.subscribe((result) => this.changeItems(result));
+    this.itemService.itemsSubject.subscribe((result)=>this.items=result);
   }
   changeItems(currentTags: Tag[]) {
     if (currentTags == null || currentTags.length == 0) {
