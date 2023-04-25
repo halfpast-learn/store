@@ -3,7 +3,7 @@
     <div class="column">
       <div class="setting">
         <div class="settingLabel">
-          <span>Role</span>
+          <span>Роль</span>
         </div>
         <div class="settingDescription">
           <p>Данное поле влияет на рекомендуемые товары</p>
@@ -18,13 +18,13 @@
     <div class="column">
       <div class="setting">
         <div class="settingLabel">
-          <span>Username</span>
+          <span>Имя пользователя</span>
         </div>
         <input disabled class="settingInput" type="text" title="username" placeholder={{currentUsername}} />
       </div>
       <div class="setting">
         <div class="settingLabel">
-          <span>Password</span>
+          <span>Пароль</span>
           <button class="changeButton" (click)="changePassword(newPassword.value, newPasswordAgain.value)">Для смены введите новый пароль и нажмите сюда</button>
         </div>
         <input #newPassword class="settingInput" type="text" title="password" placeholder="Новый пароль" />
@@ -33,6 +33,7 @@
     </div>
   </div>
   <div class="orders">
+    <h2>Заказы</h2>
     <div *ngFor="let order of orders" class="order">
       <span>Заказ №{{order.order_id}} </span> 
       <span>Статус: {{order.status}}</span> 
