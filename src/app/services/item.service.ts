@@ -19,18 +19,7 @@ export class ItemService {
         this.itemsSubject.next(this.items);
       });
   }
-
-  addItem(item: Item) {
-    this.items.push(item);
-    this.itemsSubject.next(this.items);
-  }
-
-  removeItem(item: Item) {
-    let removeIndex = this.items.findIndex((i) => i.item_id == item.item_id);
-    this.items = this.items.filter((item, index) => index != removeIndex);
-    this.itemsSubject.next(this.items);
-  }
-
+  
   filterItems(
     description: string,
     minPrice: number,
