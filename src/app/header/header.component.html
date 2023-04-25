@@ -1,15 +1,7 @@
 <div class="header">
-    <img class="menuicon"
-        src="../../assets/icons/hamburger.png"
-        alt="" (click)="changeMenuVisibility()">
-    <h1 class="storename" routerLink="/">Store</h1>
+    <h1 class="storename" routerLink="/">Магазин</h1>
     <span class="buttons">
-        <button routerLink="/login">profile</button>
-        <button routerLink="/cart">cart</button>
+        <button routerLink="/login">Профиль</button>
+        <button routerLink="/cart">Корзина</button>
     </span>
-</div>
-<div class="menu" [ngStyle]="{'visibility': visible ? 'visible':'hidden'}">
-    <p routerLink="/" (click)="changeTags($event)">Recommended</p>
-    <p (click)="changeTags($event)">Goods By Roles</p>
-    <p (click)="changeTags($event)">Goods By Categories</p>
 </div>
