@@ -1,14 +1,14 @@
 <div class="filter">
-    <input #description type="text" placeholder="Search" class="fullWidth">
+    <input #description type="text" placeholder="Поиск" class="fullWidth">
     <div class="price">
-        <span class="priceLabel"> Price:
+        <span class="priceLabel"> Цена:
         </span>
-        <input #minPrice class="priceInput" type="text" placeholder="From">
-        <input #maxPrice class="priceInput" type="text" placeholder="To">
+        <input #minPrice class="priceInput" type="text" placeholder="От">
+        <input #maxPrice class="priceInput" type="text" placeholder="До">
     </div>
     <div class="tags">
         <span class="tag" *ngFor="let tag of tags" (click)="handleSelection(tag)"
             [ngStyle]="{'background-color':tag.selected===true?'rgba(159, 236, 220, 0.85)':'rgba(0,0,0,0.0)'}">{{tag.name}}</span>
     </div>
-    <button (click)="applyFilter(description.value, minPrice.value, maxPrice.value)" class="fullWidth">Apply</button>
+    <button (click)="applyFilter(description.value, minPrice.value, maxPrice.value)" class="fullWidth">Применить</button>
 </div>
