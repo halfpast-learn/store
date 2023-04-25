@@ -22,19 +22,28 @@ export class ProductFeedComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.readItems().subscribe((result) => {
       this.allItems = result;
-      this.items = this.allItems;
+      this.changeItems([]);
     });
 
-    this.tagService.currentTags.subscribe((result) => {
-      if (result.length != 0) {
-        this.apiService
-          .readItemsByTags(result.map((a) => a.tag_id))
-          .subscribe((result) => {
-            this.items = result;
+    this.tagService.currentTags.subscribe((result) => this.changeItems(result));
+  }
+  changeItems(currentTags: Tag[]) {
+    if (currentTags == null || currentTags.length == 0) {
+      this.items = this.allItems;
+    } else {
+      this.apiService
+        .readItemsByTags(currentTags.map((tag) => tag.tag_id))
+        .subscribe((result) => {
+          let items = result;
+          let uniqueItems: Item[] = [];
+          items.forEach((item) => {
+            if (uniqueItems.findIndex((i) => i.item_id == item.item_id)==-1)
+              uniqueItems.push(item);
           });
-      } else {
-        this.items = this.allItems;
-      }
-    });
+          if (uniqueItems.length > 0) {
+            this.items = uniqueItems.sort((a,b)=>a.item_id-b.item_id);
+          }
+        });
+    }
   }
 }
