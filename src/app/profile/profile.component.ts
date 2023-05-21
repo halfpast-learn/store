@@ -5,6 +5,7 @@ import { Tag } from '../entities/tag';
 import { ApiService } from '../services/api.api-service';
 import { MatSelectChange } from '@angular/material/select';
 import { Order } from '../entities/order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -24,10 +25,15 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.currentUsername = this.authService.currentUser.username;
+    if (this.currentUsername.length<1) {
+      this.router.navigate(['login']);
+    }
     this.apiService.readRoles().subscribe((result) => {
       this.roles = result;
     });
@@ -43,7 +49,6 @@ export class ProfileComponent implements OnInit {
       .subscribe((result) => {
         this.currentRole = result==null?new Role():result;
       });
-    this.currentUsername = this.authService.currentUser.username;
     this.apiService.readUserOrders(this.authService.currentUser.user_id!).subscribe((result) => {
       this.orders = result==null?[]:result.orders!;
       console.log(result.orders!);
@@ -73,5 +78,9 @@ export class ProfileComponent implements OnInit {
     }
     this.passwordErrorInvoked = false;
     this.authService.changePassword(newPassword);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

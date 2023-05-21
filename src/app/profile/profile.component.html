@@ -19,6 +19,7 @@
       <div class="setting">
         <div class="settingLabel">
           <span>Имя пользователя</span>
+          <button class="changeButton" routerLink="/login" (click)="logout()">Выйти из профиля</button>
         </div>
         <input disabled class="settingInput" type="text" title="username" placeholder={{currentUsername}} />
       </div>
