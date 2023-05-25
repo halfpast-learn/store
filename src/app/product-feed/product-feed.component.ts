@@ -17,12 +17,12 @@ export class ProductFeedComponent implements OnInit {
   currentTags: Tag[] = [];
   constructor(
     private apiService: ApiService,
-    private tagService: TagLoaderService,
     private itemService: ItemService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.itemService.itemsSubject.subscribe((result)=>this.items=result);
+    this.items = this.itemService.allItems; 
+    this.itemService.itemsSubject.subscribe((result) => this.items = result);
   }
   changeItems(currentTags: Tag[]) {
     if (currentTags == null || currentTags.length == 0) {
@@ -34,11 +34,11 @@ export class ProductFeedComponent implements OnInit {
           let items = result;
           let uniqueItems: Item[] = [];
           items.forEach((item) => {
-            if (uniqueItems.findIndex((i) => i.item_id == item.item_id)==-1)
+            if (uniqueItems.findIndex((i) => i.item_id == item.item_id) == -1)
               uniqueItems.push(item);
           });
           if (uniqueItems.length > 0) {
-            this.items = uniqueItems.sort((a,b)=>a.item_id-b.item_id);
+            this.items = uniqueItems.sort((a, b) => a.item_id - b.item_id);
           }
         });
     }
