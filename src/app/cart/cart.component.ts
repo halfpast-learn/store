@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { Item } from '../entities/item';
-import { CartService } from '../services/cart-service.service';
+import { CartService, CartWrapper } from '../services/cart-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,27 +9,25 @@ import { CartService } from '../services/cart-service.service';
 })
 export class CartComponent implements OnInit {
   @ViewChild(MatTable) table?: MatTable<any>;
-  displayedColumns: string[] = ['description', 'price'];
-  items: Item[] = [];
-  
-  constructor(private cartService: CartService) {}
+  displayedColumns: string[] = ['description', 'price', 'amount', 'totalPrice'];
+  items: CartWrapper[] = [];
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
+    console.log(this.items);
     this.table?.renderRows();
   }
 
-  /*increaseAmount(event: Item) {
-    items.filter(x => x.id == event.id)[0].amount += 1;
+  increaseAmount(event: CartWrapper) {
+    this.cartService.addItem(event.item);
+    console.log(this.items);
   }
 
-  decreaseAmount(event: Item) {
-    items.filter(x => x.id == event.id)[0].amount -= 1;
-    if (items.filter(x => x.id == event.id)[0].amount == 0) {
-      items = items.filter(x => x.id != event.id);
-      this.dataSource = [...items];
-    }
-  }*/
+  decreaseAmount(event: CartWrapper) {
+    this.cartService.removeItem(event.item);
+    this.items=this.cartService.getItems();
+  }
 
   checkoutOrder(address: string, contactInfo: string) {
     this.cartService.createOrder(address, contactInfo);
