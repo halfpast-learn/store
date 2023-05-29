@@ -32,4 +32,9 @@ export class CartComponent implements OnInit {
   checkoutOrder(address: string, contactInfo: string) {
     this.cartService.createOrder(address, contactInfo);
   }
+  calcTotal() {
+    let total: number = 0;
+    this.items.forEach(wrapper=>total+=wrapper.amount*wrapper.item.price);
+    return total;
+  }
 }
