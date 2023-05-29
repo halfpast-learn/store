@@ -45,7 +45,15 @@ export class CartService {
     let order: Order = new Order;
     order.status = "created";
     order.user_owner = this.authService.getCurrentUser().user_id!;
-    //order.items = this.currentItems;
+    let orderItems: Item[] = [];
+    for (let wrapper of this.currentItems) {
+      let i=0;
+      while (i<wrapper.amount) {
+        orderItems.push(wrapper.item);
+        i+=1;
+      }
+    }
+    order.items = orderItems;
     order.address = address;
     order.contact_information = contact_info;
 
