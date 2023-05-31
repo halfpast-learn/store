@@ -37,9 +37,9 @@ export class ItemService {
         }
       }
       return (
-        item.description.includes(description) &&
-        item.price > minPrice &&
-        item.price < maxPrice &&
+        item.description.toLowerCase().includes(description.toLowerCase()) &&
+        item.price >= minPrice &&
+        (maxPrice==0?true:(item.price < maxPrice)) &&
         containsTag
       );
     });

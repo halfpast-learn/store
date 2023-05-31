@@ -1,14 +1,46 @@
-<div class="filter">
-    <input #description type="text" placeholder="Поиск" class="fullWidth">
-    <div class="price">
-        <span class="priceLabel"> Цена:
-        </span>
-        <input #minPrice class="priceInput" type="text" placeholder="От">
-        <input #maxPrice class="priceInput" type="text" placeholder="До">
-    </div>
-    <div class="tags">
-        <span class="tag" *ngFor="let tag of tags" (click)="handleSelection(tag)"
-            [ngStyle]="{'background-color':tag.selected===true?'rgba(159, 236, 220, 0.85)':'rgba(0,0,0,0.0)'}">{{tag.name}}</span>
-    </div>
-    <button (click)="applyFilter(description.value, minPrice.value, maxPrice.value)" class="fullWidth">Применить</button>
-</div>
+<mat-card class="filter">
+    <mat-card-content>
+
+        <mat-form-field class="fullWidth">
+            <mat-label>
+                Поиск
+            </mat-label>
+            <input matInput type="text" [(ngModel)]="description">
+            <button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-label>Цена</mat-label>
+        <p></p>
+        <p class="price">
+            <mat-form-field>
+                <mat-label>От</mat-label>
+                <input matInput [(ngModel)]="minPrice">
+                <button *ngIf="minPrice" matSuffix mat-icon-button aria-label="Clear" (click)="minPrice=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>До</mat-label>
+                <input matInput [(ngModel)]="maxPrice">
+                <button *ngIf="maxPrice" mat-icon-button matSuffix aria-label="Clear" (click)="maxPrice=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </p>
+        
+        <mat-label>Теги</mat-label>
+        <p></p>
+        <mat-chip-listbox>
+            <span *ngFor="let tag of tags">
+                <mat-chip-option (click)="handleSelection(tag)" *ngIf="selected[tag.tag_id]===true"
+                    selected>{{tag.name}}</mat-chip-option>
+                <mat-chip (click)="handleSelection(tag)" *ngIf="!selected[tag.tag_id]===true">{{tag.name}}</mat-chip>
+            </span>
+        </mat-chip-listbox>
+        <p></p>
+        
+        <button mat-raised-button color="primary" (click)="applyFilter()" class="fullWidth">Применить</button>
+    </mat-card-content>
+</mat-card>

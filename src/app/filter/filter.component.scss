@@ -1,41 +1,14 @@
 .filter {
-    display: flex;
-    flex-direction: column;
     font-size: large;
-    gap: 10px;
-    padding: 5px 0px 0px 5px;
-    width: 295px;
-}
-input[type="text"] {
-    -webkit-box-sizing: border-box; // Safari/Chrome, other WebKit
-    -moz-box-sizing: border-box;    // Firefox, other Gecko
-    box-sizing: border-box;         // Opera/IE 8+
-    font-size: large;
-    border: 0px;
-    border-bottom: 1px solid lightgray;
+    max-width: 350px;
 }
 
-input[type="text"]:focus {
-    border: 0px;
-    border-bottom: 1px solid rgba(159, 236, 220, 0.85);
-    outline: 0px;
-}
-
-.container>* {
-    margin-bottom: 10px;
+.price mat-form-field+mat-form-field {
+    margin-left: 8px;
 }
 
 .price {
     display: flex;
-    width: 100%;
-    flex-direction: row;
-    gap: 5px;
-}
-
-.priceInput {
-    flex-grow: 1;
-    flex-shrink: 1;
-    width: 5px;
 }
 
 .fullWidth {
@@ -43,27 +16,5 @@ input[type="text"]:focus {
 }
 
 button {
-    background-color: white;
-    border: 0px;
-    height: 30px;
     font-size: large;
-    cursor: pointer;
-}
-button:hover {
-    background-color: rgba(159, 236, 220, 0.85);
-}
-.tags {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.tag {
-    display: flex;
-    box-sizing: border-box;
-    height: 30px;
-    padding: 5px;
-    align-items: center;
-    cursor: pointer;
 }

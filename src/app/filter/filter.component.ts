@@ -16,9 +16,13 @@ export class FilterComponent implements OnInit {
     private apiservice: ApiService,
     private authService: AuthService,
     private itemService: ItemService
-  ) {}
+  ) { }
 
+  description: string = '';
+  minPrice: string = '';
+  maxPrice: string = '';
   tags: Tag[] = [];
+  selected: { [id: number]: boolean } = {};
 
   ngOnInit(): void {
     if (
@@ -34,15 +38,17 @@ export class FilterComponent implements OnInit {
   }
 
   handleSelection(tag: Tag) {
-    this.tags.filter((x) => x.tag_id == tag.tag_id)[0].selected =
-      !this.tags.filter((x) => x.tag_id == tag.tag_id)[0].selected;
-    this.tagloader.changeTags(this.tags.filter((x) => x.selected == true));
+    this.selected[tag.tag_id]=!this.selected[tag.tag_id];
+    this.tagloader.changeTags(this.tags.filter((x=>this.selected[x.tag_id]==true)));
   }
 
-  applyFilter(description: string, _minPrice: string, _maxPrice: string) {
-    description = description==undefined?'':description;
-    let minPrice = isNaN(parseInt(_minPrice))?0:parseInt(_minPrice);
-    let maxPrice = isNaN(parseInt(_maxPrice))?Number.MAX_SAFE_INTEGER:parseInt(_maxPrice);
-    this.itemService.filterItems(description, minPrice, maxPrice, this.tagloader.currentTags.value);
+  applyFilter() {
+    console.log(
+      this.description == '' ? true : this.description,
+      Number(this.minPrice),
+      Number(this.maxPrice) == 0 ? Infinity : Number(this.maxPrice),
+      this.tagloader.currentTags.value
+    );
+    this.itemService.filterItems(this.description, Number(this.minPrice), Number(this.maxPrice), this.tagloader.currentTags.value);
   }
 }
