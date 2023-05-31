@@ -1,10 +1,12 @@
-<div class="main">
-    <img class="pic" title="pic" [src]="imageSource">
-    <div class="description">
-        {{item.description}}
-    </div>
-    <div class="purchaseControls">
-        <span class="price">${{item.price}}</span>
-        <button class="addToCart" (click)="addToCart(item)">В корзину</button>
-    </div>
-</div>
+<mat-card>
+    <img mat-card-image [src]="imageSource">
+    <mat-card-content>
+        <mat-label>{{item.description}}</mat-label>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-label>{{item.price}}₽</mat-label>
+        <span class="spacer"></span>
+        <button mat-icon-button color="primary" (click)="addToCart(item)">
+            <mat-icon>add_shopping_cart</mat-icon></button>
+    </mat-card-actions>
+</mat-card>
