@@ -2,31 +2,19 @@
     font-size: large;
 }
 
-.container {
+mat-card {
+    width: 400px;
+    margin: 10% auto;
+}
+
+mat-form-field {
     display: flex;
-    flex-direction: column;
-    width: 200px;
-    margin: 20% auto;
-    gap: 10px;
 }
 
-.loginInput {
-    border: 0px;
-    border-bottom: 1px solid black;
-    outline: 0px;
-}
-
-.loginInput:focus {
-    border-bottom: 1px solid rgba(159, 236, 220, 0.85);
+mat-card-content {
+    gap: 5px;
 }
 
 button {
-    background-color: white;
-    border: 0px;
-    height: 40px;
-    font-size: large;
-    cursor: pointer;
-}
-button:hover {
-    background-color: rgba(159, 236, 220, 0.85);
+    width: 100%;
 }

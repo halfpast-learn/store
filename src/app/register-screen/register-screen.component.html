@@ -1,6 +1,17 @@
-<div class="container">
-    <input #login class="loginInput" type="text" placeholder="имя пользователя">
-    <input #password class="loginInput" type="password" placeholder="пароль">
-    <button (click)="register(login.value, password.value)">Зарегистрироваться</button>
-    <button routerLink="/login">Переключить на Вход</button>
-</div>
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Имя пользователя</mat-label>
+            <input matInput #login type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Пароль</mat-label>
+            <input matInput #password type="password">
+        </mat-form-field>
+        <p></p>
+        <button mat-flat-button color="primary" (click)="register(login.value, password.value)">Зарегистрироваться</button>
+        <p></p>
+        <button mat-flat-button color="primary" routerLink="/login">Переключить на Вход</button>
+    </mat-card-content>
+</mat-card>
