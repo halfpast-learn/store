@@ -1,7 +1,8 @@
-<div class="header">
-    <h1 class="storename" routerLink="/">Магазин</h1>
-    <span class="buttons">
-        <button routerLink="/login">Профиль</button>
-        <button routerLink="/cart">Корзина</button>
-    </span>
-</div>
+<mat-toolbar color="primary">
+    <button mat-flat-button color="primary" class="storename" routerLink="/">Главная страница<mat-icon>home</mat-icon></button>
+    <span class="spacer"></span>
+    <button mat-flat-button color="primary" routerLink="/login">Профиль<mat-icon>person</mat-icon>
+    </button>
+    <button mat-flat-button color="primary" routerLink="/cart">Корзина <mat-icon>shopping_cart</mat-icon>
+    </button>
+</mat-toolbar>

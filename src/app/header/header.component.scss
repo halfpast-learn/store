@@ -1,61 +1,11 @@
-.header {
-  height: 35px;
-  display: flex;
-  border-bottom: 1px solid black;
-}
-
 * {
   font-size: large;
 }
 
-.storename {
-  margin: auto 5px;
-  cursor: pointer;
-}
-
-.buttons {
-  margin: 0px 0px 0px auto;
-}
-.buttons > button {
-  background-color: white;
-  border: 0px;
-  height: 100%;
+.spacer {
+  flex: 1 1 auto;
 }
 .buttons > button:hover {
   background-color: rgba(159, 236, 220, 0.85);
   cursor: pointer;
-}
-
-.menuicon {
-  height: 50%;
-  display: flex;
-  margin: auto 10px;
-  cursor: pointer;
-}
-
-.menu {
-  background-color: white;
-  display: inline-flexbox;
-
-  border: 1px solid black;
-  border-left: 0px;
-
-  padding: 0px 0;
-  width: 300px;
-  line-height: 40px;
-  
-  box-sizing: border-box;
-  word-wrap: break-word;
-
-  position: absolute;
-  top: 35px;
-  left: 0px;
-}
-.menu > p {
-  margin: 0;
-  text-align: center;
-  cursor: pointer;
-}
-.menu > p:hover {
-  background-color: rgba(159, 236, 220, 0.85);
 }
