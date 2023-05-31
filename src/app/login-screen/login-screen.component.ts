@@ -13,7 +13,7 @@ export class LoginScreenComponent {
   loginSubscription = new Subscription();
 
   constructor(private auth: AuthService, private router: Router) {
-    this.login("test", "123");
+    //this.login("test", "123");
     this.loginSubscription = this.auth.loggedIn.subscribe((result) => {
       this.loggedIn = result;
       if (result) {
