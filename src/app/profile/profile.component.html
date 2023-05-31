@@ -1,46 +1,82 @@
-<div class="profile">
-  <div class="settings">
-    <div class="column">
-      <div class="setting">
-        <div class="settingLabel">
-          <span>Роль</span>
-        </div>
-        <div class="settingDescription">
-          <p>Данное поле влияет на рекомендуемые товары</p>
-          <p>Укажите свою профессию или хобби</p>
-        </div>
-        <mat-select [(value)]="currentRole.role_id" (selectionChange)="changeRole($event)">
-          <mat-option *ngFor="let role of roles" [value]="role.role_id">{{role.name}}</mat-option>
-        </mat-select>
-      </div>
-    </div>
+<mat-drawer-container>
+  <mat-drawer opened mode="side">
+    <mat-label>Настройки</mat-label>
+    <p></p>
+    <mat-divider></mat-divider>
+    <p></p>
+    <mat-label>Имя пользователя: {{currentUsername}}</mat-label>
+    <p></p>
+    <mat-label>Роль влияет на рекомендуемые товары</mat-label>
+    <p></p>
+    <mat-label>Укажите свою профессию или хобби</mat-label>
+    <p></p>
+    <mat-form-field>
+      <mat-label>Роль</mat-label>
+      <mat-select [(value)]="currentRole.role_id" (selectionChange)="changeRole($event)">
+        <mat-option *ngFor="let role of roles" [value]="role.role_id">{{role.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <p></p>
 
-    <div class="column">
-      <div class="setting">
-        <div class="settingLabel">
-          <span>Имя пользователя</span>
-          <button class="changeButton" routerLink="/login" (click)="logout()">Выйти из профиля</button>
-        </div>
-        <input disabled class="settingInput" type="text" title="username" placeholder={{currentUsername}} />
-      </div>
-      <div class="setting">
-        <div class="settingLabel">
-          <span>Пароль</span>
-          <button class="changeButton" (click)="changePassword(newPassword.value, newPasswordAgain.value)">Для смены введите новый пароль и нажмите сюда</button>
-        </div>
-        <input #newPassword class="settingInput" type="text" title="password" placeholder="Новый пароль" />
-        <input #newPasswordAgain class="settingInput" type="text" title="password" placeholder="Новый пароль еще раз" />
-      </div>
-    </div>
-  </div>
-  <div class="orders">
-    <h2>Заказы</h2>
-    <div *ngFor="let order of orders" class="order">
-      <span>Заказ №{{order.order_id}} </span> 
-      <span>Статус: {{order.status}}</span> 
-      <span>Цена: {{calculatePrice(order)}}</span>
-      <span>Адрес: {{order.address}}</span>
-      <span>Контакты: {{order.contact_information}}</span>
-    </div>
-  </div>
-</div>
+    <label>Смена пароля</label>
+    <p></p>
+    <mat-form-field>
+      <mat-label>Текущий пароль</mat-label>
+      <input matInput #currentPassword type="password" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Новый пароль</mat-label>
+      <input matInput #newPassword type="password" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Новый пароль еще раз</mat-label>
+      <input matInput #newPasswordAgain type="password" />
+    </mat-form-field>
+    <button mat-flat-button color="primary">Сменить пароль</button>
+  </mat-drawer>
+
+  <p></p>
+  <mat-divider></mat-divider>
+  <p></p>
+
+  <mat-drawer-content>
+    <mat-label>Список заказов</mat-label>
+    <p></p>
+    <mat-divider></mat-divider>
+    <p></p>
+    <table mat-table [dataSource]="orders" class="mat-elevation-z8">
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <ng-container matColumnDef="order_id">
+        <th mat-header-cell *matHeaderCellDef>Номер заказа</th>
+        <td mat-cell *matCellDef="let order"> {{order.order_id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Количество </th>
+        <td mat-cell *matCellDef="let order">
+          {{order.status}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Цена</th>
+        <td mat-cell *matCellDef="let order"> {{calculatePrice(order)}}₽ </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Адрес магазина </th>
+        <td mat-cell *matCellDef="let order"> {{order.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contact_information">
+        <th mat-header-cell *matHeaderCellDef> Комментарий </th>
+        <td mat-cell *matCellDef="let order"> {{order.contact_information}} </td>
+      </ng-container>
+
+    </table>
+  </mat-drawer-content>
+</mat-drawer-container>

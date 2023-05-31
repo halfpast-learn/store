@@ -16,6 +16,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+
 
 import { AppComponent } from './app.component';
 import { MainViewComponent } from './main-view/main-view.component';
@@ -61,6 +65,8 @@ import { AsyncPipe } from '@angular/common';
     MatCardModule,
     MatAutocompleteModule,
     MatToolbarModule,
+    MatDividerModule,
+    MatSidenavModule,
 
     ReactiveFormsModule,
     AsyncPipe

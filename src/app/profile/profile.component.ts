@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   roles: Role[] = [];
@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   currentUsername: string = "";
 
   passwordErrorInvoked: boolean = false;
+
+  displayedColumns: string[] = ['order_id', 'status', 'price', 'address', 'contact_information'];
 
   constructor(
     private apiService: ApiService,

@@ -1,39 +1,15 @@
-.profile {
-  border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
-  border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
-  min-height: 400px;
-  max-width: 1000px;
-  margin: 0 auto;
+:host {
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-mat-select {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: large;
-  border-bottom: 1px solid black;
-  width: 10%;
-}
-
-.setting > mat-select {
-  width: 100%;
-}
-
-.settings {
   display: flex;
-  flex-direction: row;
-  gap: 50px;
+  flex: 1;
 }
 
-.column {
+mat-drawer {
+  width: 400px;
   display: flex;
   flex-direction: column;
-  width: 50%;
-  justify-content: space-between;
-  font-weight: bold;
-  gap: 20px;
+  padding: 10px;
 }
 
 .setting {
@@ -42,57 +18,25 @@ mat-select {
   gap: 5px;
 }
 
-.settingDescription > p {
-  font-size: medium;
-  font-weight: normal;
+mat-form-field {
+  width: 100%;
 }
 
-.settingLabel {
-  display: flex;
-  justify-content: space-between;
+mat-drawer button {
+  width: 100%;
 }
-.settingLabel > button {
-  border: 0;
-  border-radius: 0;
-  background-color: white;
+mat-drawer-container {
+  width: 100%;
 }
-.settingLabel > button:hover {
-  background-color: rgba(159, 236, 220, 0.85);
+mat-drawer-content {
+  padding: 10px;
+  margin-right: 0;
+  margin-left: auto;
 }
 
-.settingInput {
-  border: 0px;
-  border-bottom: 1px solid black;
-  outline: 0px;
+th {
   font-size: large;
-  padding: 0px;
-  width: 100%;
 }
-.settingInput:focus {
-  border-bottom: 1px solid rgba(159, 236, 220, 0.85);
-}
-
-.email {
-  width: 100%;
-  box-sizing: border-box;
-}
-.address {
-  resize: none;
-  width: 100%;
-  height: 90px;
-  box-sizing: border-box;
-  border-radius: 0;
-}
-
-.orders {
-  border-top: 1px solid black;
-  margin-top: 20px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.order {
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid black;
+td {
+  font-size: large;
 }
