@@ -44,6 +44,7 @@ export class ApiService {
   public deleteUser(id: number) {
     return this.httpClient.delete(`${this.API_SERVER}/users/${id}/delete`);
   }
+  
   /* items */
   public readItems() {
     return this.httpClient.get<Item[]>(`${this.API_SERVER}/items`);
@@ -56,6 +57,7 @@ export class ApiService {
   public readItem(item_id: number) {
     return this.httpClient.get<Item>(`${this.API_SERVER}/items/${item_id}`);
   }
+
   /* tags */
   public readTags() {
     return this.httpClient.get<Tag[]>(`${this.API_SERVER}/tags`);
@@ -64,8 +66,9 @@ export class ApiService {
     return this.httpClient.get<Tag[]>(`${this.API_SERVER}/roles/role/${id}`);
   }
   public changeTagsRating(tagIds:number[], liked: boolean, currentUserId: number) {
-    return this.httpClient.post(`${this.API_SERVER}/tags/opinion/`,{tagIds: tagIds, liked: liked, userId: currentUserId});
+    return this.httpClient.post(`${this.API_SERVER}/tags/opinion`,{tagIds: tagIds, liked: liked, userId: currentUserId});
   }
+
   /* roles */
   public readRoles() {
     return this.httpClient.get<Role[]>(`${this.API_SERVER}/roles`);
@@ -73,6 +76,7 @@ export class ApiService {
   public readRole(id: number) {
     return this.httpClient.get<Role>(`${this.API_SERVER}/roles/${id}`);
   }
+
   /* orders */
   public createOrder(order: Order) {
     this.httpClient.post<Order>(`${this.API_SERVER}/orders`, order).subscribe();
