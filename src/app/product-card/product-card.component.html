@@ -1,11 +1,23 @@
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
 <mat-card>
     <img mat-card-image [src]="imageSource">
     <mat-card-content>
-        <mat-label>{{item.description}}</mat-label>
+        <mat-label class="description">{{item.description}}</mat-label>
+        <mat-divider></mat-divider>
+        <mat-label>{{item.price}}₽</mat-label>
     </mat-card-content>
     <mat-card-actions>
-        <mat-label>{{item.price}}₽</mat-label>
-        <span class="spacer"></span>
+        <button mat-icon-button color="primary" (click)="like(item)">
+            <i *ngIf="state==1" class="material-icons">thumb_up</i>
+            <i *ngIf="state!=1" class="material-icons-outlined">thumb_up</i>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="dislike(item)">
+            <i *ngIf="state==-1" class="material-icons">thumb_down</i>
+            <i *ngIf="state!=-1" class="material-icons-outlined">thumb_down</i>
+        </button>
+            <span class="spacer"></span>
         <button mat-mini-fab color="primary" (click)="addToCart(item)">
             <mat-icon>add_shopping_cart</mat-icon></button>
     </mat-card-actions>

@@ -63,6 +63,9 @@ export class ApiService {
   public readTagsByRole(id: number) {
     return this.httpClient.get<Tag[]>(`${this.API_SERVER}/roles/role/${id}`);
   }
+  public changeTagsRating(tagIds:number[], liked: boolean, currentUserId: number) {
+    return this.httpClient.post(`${this.API_SERVER}/tags/opinion/`,{tagIds: tagIds, liked: liked, userId: currentUserId});
+  }
   /* roles */
   public readRoles() {
     return this.httpClient.get<Role[]>(`${this.API_SERVER}/roles`);
