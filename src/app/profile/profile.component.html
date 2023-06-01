@@ -6,6 +6,8 @@
     <p></p>
     <mat-label>Имя пользователя: {{currentUsername}}</mat-label>
     <p></p>
+    <mat-divider></mat-divider>
+    <p></p>
     <mat-label>Роль влияет на рекомендуемые товары</mat-label>
     <p></p>
     <mat-label>Укажите свою профессию или хобби</mat-label>
@@ -33,12 +35,14 @@
       <mat-label>Новый пароль еще раз</mat-label>
       <input matInput #newPasswordAgain type="password" />
     </mat-form-field>
-    <button mat-flat-button color="primary">Сменить пароль</button>
-  </mat-drawer>
+    <button mat-flat-button color="primary" (click)="changePassword(newPassword.value, newPasswordAgain.value)">Сменить пароль</button>
 
-  <p></p>
-  <mat-divider></mat-divider>
-  <p></p>
+    <p></p>
+    <mat-divider></mat-divider>
+    <p></p>
+
+    <button mat-flat-button color="warn" (click)="logout()" routerLink="/login">Выйти из профиля</button>
+  </mat-drawer>
 
   <mat-drawer-content>
     <mat-label>Список заказов</mat-label>

@@ -74,7 +74,8 @@ export class ProfileComponent implements OnInit {
   }
 
   changePassword(newPassword: string, newPasswordAgain: string) {
-    if (newPassword.length<2 || newPassword!==newPasswordAgain) {
+    
+    if (newPassword.length < 2 || newPassword !== newPasswordAgain) {
       this.passwordErrorInvoked = true;
       return;
     }
