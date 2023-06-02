@@ -44,7 +44,7 @@ export class ApiService {
   public deleteUser(id: number) {
     return this.httpClient.delete(`${this.API_SERVER}/users/${id}/delete`);
   }
-  
+
   /* items */
   public readItems() {
     return this.httpClient.get<Item[]>(`${this.API_SERVER}/items`);
@@ -66,7 +66,7 @@ export class ApiService {
     return this.httpClient.get<Tag[]>(`${this.API_SERVER}/roles/role/${id}`);
   }
   public changeTagsRating(tagIds:number[], liked: boolean, currentUserId: number) {
-    return this.httpClient.post(`${this.API_SERVER}/tags/opinion`,{tagIds: tagIds, liked: liked, userId: currentUserId});
+    return this.httpClient.post<any>(`${this.API_SERVER}/tags/opinion`, JSON.stringify({tagIds: tagIds, liked: liked, userId: currentUserId}), {headers: {'Content-Type':'application/json'}}).subscribe(result=>console.log(result));
   }
 
   /* roles */
