@@ -3,6 +3,7 @@ import { Item } from '../entities/item';
 import { ApiService } from '../services/api.api-service';
 import { CartService } from '../services/cart-service.service';
 import { AuthService } from '../services/auth.service';
+import { TagService } from '../services/tag.service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent implements OnInit {
-  constructor(private apiService: ApiService, private cartService: CartService, private authService: AuthService) {}
+  constructor(private apiService: ApiService, private cartService: CartService, private authService: AuthService, private tagService: TagService) {}
 
   state: number = 0;
 

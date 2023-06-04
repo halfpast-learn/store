@@ -3,6 +3,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Item } from '../entities/item';
 import { Tag } from '../entities/tag';
 import { ApiService } from './api.api-service';
+import { TagService } from './tag.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +13,27 @@ export class ItemService {
   items: Item[] = [];
   allItems: Item[] = [];
 
-  constructor(private apiService: ApiService) {
+  tagOpinions: {tag_id:number, name:string, opinion:number}[] = [];
+
+  constructor(private apiService: ApiService, private tagService: TagService) {
     this.apiService.readItems().subscribe((result) => {
         this.allItems = result;
         this.items = this.allItems;
         this.itemsSubject.next(this.items);
       });
+    this.apiService.getTagOpinions().subscribe(result=>{this.tagOpinions=result; this.updateItemsOrder()});
   }
-  
+  updateItemsOrder() {
+    this.items.sort((b,a)=>{
+      let asorted = this.tagOpinions.findIndex(x=>x.tag_id == a.tags.sort((tag_a,tag_b)=>this.tagOpinions[tag_b.tag_id].opinion-this.tagOpinions[tag_a.tag_id].opinion)[0].tag_id);
+      let bsorted = this.tagOpinions.findIndex(x=>x.tag_id == b.tags.sort((tag_a,tag_b)=>this.tagOpinions[tag_b.tag_id].opinion-this.tagOpinions[tag_a.tag_id].opinion)[0].tag_id);
+      return bsorted-asorted;
+    });
+    console.log(this.items);
+    this.allItems=this.items;
+  }
+  findMostValuableTag(item: Item) {
+  }
   filterItems(
     description: string,
     minPrice: number,

@@ -29,8 +29,8 @@ export class CartComponent implements OnInit {
     this.items=this.cartService.getItems();
   }
 
-  checkoutOrder(address: string, contactInfo: string) {
-    this.cartService.createOrder(address, contactInfo);
+  checkoutOrder(comment: string) {
+    this.cartService.createOrder(comment);
   }
   calcTotal() {
     let total: number = 0;

@@ -60,8 +60,11 @@ export class ApiService {
 
   /* tags */
   public readTags() {
-    return this.httpClient.get<Tag[]>(`${this.API_SERVER}/tags`);
+    return this.httpClient.get<Tag[]>(`${this.API_SERVER}/tags/`);
   }
+  public getTagOpinions() {
+    return this.httpClient.get<{tag_id:number, name:string, opinion:number}[]>(`${this.API_SERVER}/tags/opinions/5`);
+  } 
   public readTagsByRole(id: number) {
     return this.httpClient.get<Tag[]>(`${this.API_SERVER}/roles/role/${id}`);
   }

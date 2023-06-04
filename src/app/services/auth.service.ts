@@ -7,7 +7,7 @@ import { ApiService } from './api.api-service';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {this.login("test", "123");}
   loggedIn = new BehaviorSubject<boolean>(false);
 
   currentUser: User = new User();

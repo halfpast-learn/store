@@ -37,7 +37,7 @@ export class CartService {
     }
   }
 
-  createOrder(address: string = "", contact_info: string = ""): void {
+  createOrder(comment: string = ""): void {
     if (this.authService.getCurrentUser() == null || this.authService.getCurrentUser() == undefined) {
       alert("Войдите или зарегистрируйтесь!");
       return;
@@ -54,8 +54,7 @@ export class CartService {
       }
     }
     order.items = orderItems;
-    order.address = address;
-    order.contact_information = contact_info;
+    order.comment = comment;
 
     this.apiservice.createOrder(order);
     alert("Заказ создан!");

@@ -4,6 +4,7 @@ import { ApiService } from '../services/api.api-service';
 import { AuthService } from '../services/auth.service';
 import { ItemService } from '../services/item.service';
 import { TagLoaderService } from '../services/tag-category-changer.service';
+import { TagService } from '../services/tag.service';
 
 @Component({
   selector: 'app-filter',
@@ -15,7 +16,8 @@ export class FilterComponent implements OnInit {
     private tagloader: TagLoaderService,
     private apiservice: ApiService,
     private authService: AuthService,
-    private itemService: ItemService
+    private itemService: ItemService,
+    private tagService: TagService
   ) { }
 
   description: string = '';
@@ -23,18 +25,11 @@ export class FilterComponent implements OnInit {
   maxPrice: string = '';
   tags: Tag[] = [];
   selected: { [id: number]: boolean } = {};
+  opinion: {[id: number]: number} = {};
 
   ngOnInit(): void {
-    if (
-      this.authService.currentUser.role == undefined ||
-      this.authService.currentUser.role == null
-    ) {
-      this.apiservice.readTags().subscribe((result) => (this.tags = result));
-    } else {
-      this.apiservice
-        .readTagsByRole(this.authService.currentUser.role)
-        .subscribe((result) => (this.tags = result));
-    }
+    //hardcoded
+    this.tagService.currentTags.subscribe(value => this.tags=value);
   }
 
   handleSelection(tag: Tag) {

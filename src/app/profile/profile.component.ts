@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
 
   passwordErrorInvoked: boolean = false;
 
-  displayedColumns: string[] = ['order_id', 'status', 'price', 'address', 'contact_information'];
+  displayedColumns: string[] = ['order_id', 'price', 'status', 'comment'];
 
   constructor(
     private apiService: ApiService,

@@ -42,7 +42,7 @@
                 <mat-label>Комментарий к заказу</mat-label>
                 <textarea matInput #contactInfo type="text"></textarea>
             </mat-form-field>
-            <button mat-flat-button color="primary" class="checkout" (click)="checkoutOrder('', contactInfo.value)"
+            <button mat-flat-button color="primary" class="checkout" (click)="checkoutOrder(contactInfo.value)"
                 routerLink="/">Создать заказ</button>
         </mat-card-content>
     </mat-card>
